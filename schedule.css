@@ -1,0 +1,88 @@
+table {
+    text-align: center;
+    border-collapse: collapse;
+    margin: 15px;
+    overflow: hidden;
+}
+
+caption, td, th {
+    border: solid black 1px;
+    position: relative;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: skyblue;
+}
+
+tbody > tr:hover {
+    background-color: cyan;
+}
+
+td:hover::after {
+    content: "";
+    position: absolute;
+    background-color: cyan;
+    opacity: 0.15;
+    left: 0;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#rank1:checked ~ table > tbody > tr.r1,
+#rank2:checked ~ table > tbody > tr.r2,
+#rank3:checked ~ table > tbody > tr.r3
+{
+    display: table-row;
+}
+
+#working_days:checked ~ table > tbody > tr:not(.working_day),
+#weekends:checked ~ table > tbody > tr:not(.weekend),
+#am:checked ~ table > tbody > tr:not(.am),
+#pm:checked ~ table > tbody > tr:not(.pm),
+table > tbody > tr
+{
+    display: none;
+}
+
+.filter {
+    display: none;
+}
+
+.filter + label {
+    cursor: pointer;
+    background-color: lightsteelblue;
+    color : whitesmoke;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.filter:checked + label{
+    background-color: blue;
+    color : yellow;
+}
+
+.formcontainer {
+    width: fit-content;
+    background: lightyellow;
+    margin: 15px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.formcontainer > #submit {
+    cursor: pointer;
+    padding: 5px 7px;
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+}
+
+.formcontainer:invalid > #submit {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
